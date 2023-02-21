@@ -1,12 +1,15 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import type { EuiDataGridColumn } from '@elastic/eui';
-import type { ColumnHeaderOptions, SortColumnTable } from '../../../../common/types';
+import { CoreStart } from '@kbn/core/public';
+import { Observable } from 'rxjs';
+import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
 import type { DataTableModel, DataTableModelSettings } from './model';
 
 /** The state of all timelines is stored here */
@@ -43,4 +46,19 @@ export interface DataTablePersistInput
       ColumnHeaderOptions
   >;
   sort: SortColumnTable[];
+}
+
+/** A map of id to timeline  */
+export interface TimelineById {
+  [id: string]: TimelineModel;
+}
+
+export interface TimelineEpicDependencies<State> {
+  timelineByIdSelector: (state: State) => TimelineById;
+  timelineTimeRangeSelector: (state: State) => inputsModel.TimeRange;
+  selectAllTimelineQuery: () => (state: State, id: string) => inputsModel.GlobalQuery;
+  selectNotesByIdSelector: (state: State) => NotesById;
+  tableByIdSelector: (state: State) => TableById;
+  kibana$: Observable<CoreStart>;
+  storage: Storage;
 }

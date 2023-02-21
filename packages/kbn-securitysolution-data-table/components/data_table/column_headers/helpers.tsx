@@ -1,8 +1,9 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import { i18n } from '@kbn/i18n';
@@ -10,11 +11,8 @@ import type { EuiDataGridColumnActions } from '@elastic/eui';
 import { keyBy } from 'lodash/fp';
 import React from 'react';
 
-import type {
-  BrowserField,
-  BrowserFields,
-} from '../../../../../common/search_strategy/index_fields';
-import type { ColumnHeaderOptions } from '../../../../../common/types/timeline';
+import { BrowserField, BrowserFields } from '@kbn/timelines-plugin/common';
+import type { ColumnHeaderOptions } from '../../../common/types/timeline';
 import { DEFAULT_TABLE_COLUMN_MIN_WIDTH, DEFAULT_TABLE_DATE_COLUMN_MIN_WIDTH } from '../constants';
 import { defaultColumnHeaderType } from '../../../store/data_table/defaults';
 

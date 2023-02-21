@@ -1,16 +1,17 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import type { EuiDataGridColumn } from '@elastic/eui';
 import type { Filter } from '@kbn/es-query';
-import type { ExpandedDetail } from '../../../../common/types/detail_panel';
-import type { SessionViewConfig } from '../../../../common/types/session_view';
-import type { TimelineNonEcsData } from '../../../../common/search_strategy';
-import type { ColumnHeaderOptions, SortColumnTable } from '../../../../common/types';
+import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
+import type { ExpandedDetail } from '../../common/types/detail_panel';
+import type { SessionViewConfig } from '../../common/types/session_view';
+import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
 
 export interface DataTableModelSettings {
   defaultColumns: Array<

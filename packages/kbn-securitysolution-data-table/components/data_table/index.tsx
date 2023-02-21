@@ -1,8 +1,9 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import type {
@@ -23,8 +24,12 @@ import { useDispatch } from 'react-redux';
 
 import styled, { ThemeContext } from 'styled-components';
 import type { EuiTheme } from '@kbn/kibana-react-plugin/common';
-import type { FieldBrowserOptions } from '@kbn/triggers-actions-ui-plugin/public';
+import type {
+  FieldBrowserOptions,
+  FieldBrowserProps,
+} from '@kbn/triggers-actions-ui-plugin/public';
 import { i18n } from '@kbn/i18n';
+import { BrowserFields, TimelineItem } from '@kbn/timelines-plugin/common';
 import {
   useDataGridColumnsSecurityCellActions,
   SecurityCellActionsTrigger,
@@ -34,18 +39,14 @@ import type {
   CellValueElementProps,
   ColumnHeaderOptions,
   RowRenderer,
-} from '../../../../common/types/timeline';
-
-import type { TimelineItem } from '../../../../common/search_strategy/timeline';
+} from '../../common/types/timeline';
 
 import { getColumnHeader, getColumnHeaders } from './column_headers/helpers';
 import { addBuildingBlockStyle, mapSortDirectionToDirection, mapSortingColumns } from './helpers';
 
-import type { BrowserFields } from '../../../../common/search_strategy/index_fields';
 import { REMOVE_COLUMN } from './column_headers/translations';
 import { dataTableActions, dataTableSelectors } from '../../store/data_table';
 import type { BulkActionsProp } from '../toolbar/bulk_actions/types';
-import { useKibana } from '../../lib/kibana';
 import { getPageRowIndex } from './pagination';
 import { UnitCount } from '../toolbar/unit';
 import { useShallowEqualSelector } from '../../hooks/use_selector';
@@ -54,6 +55,8 @@ import { tableDefaults } from '../../store/data_table/defaults';
 const DATA_TABLE_ARIA_LABEL = i18n.translate('xpack.securitySolution.dataTable.ariaLabel', {
   defaultMessage: 'Alerts',
 });
+
+type GetFieldBrowser = (props: FieldBrowserProps) => void;
 
 export interface DataTableProps {
   additionalControls?: React.ReactNode;
@@ -73,6 +76,7 @@ export interface DataTableProps {
   totalItems: number;
   rowHeightsOptions?: EuiDataGridRowHeightsOptions;
   isEventRenderedView?: boolean;
+  getFieldBrowser: GetFieldBrowser;
 }
 
 const ES_LIMIT_COUNT = 9999;
@@ -128,10 +132,8 @@ export const DataTableComponent = React.memo<DataTableProps>(
     totalItems,
     rowHeightsOptions,
     isEventRenderedView = false,
+    getFieldBrowser,
   }) => {
-    const {
-      triggersActionsUi: { getFieldBrowser },
-    } = useKibana().services;
     const getDataTable = dataTableSelectors.getTableByIdSelector();
     const dataTable = useShallowEqualSelector((state) => getDataTable(state, id) ?? tableDefaults);
     const { columns, selectedEventIds, showCheckboxes, sort, isLoading, defaultColumns } =
