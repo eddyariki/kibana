@@ -1,16 +1,18 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
+
+/* eslint-disable eslint-comments/no-unused-disable */
 
 import { isEmpty } from 'lodash/fp';
 import type { Storage } from '@kbn/kibana-utils-plugin/public';
-import type { ColumnHeaderOptions, TableIdLiteral } from '../../../../common/types';
+import type { ColumnHeaderOptions, TableIdLiteral } from '../../common/types';
 import type { DataTablesStorage } from './types';
-import { useKibana } from '../../../common/lib/kibana';
-import type { DataTableModel } from '../../../common/store/data_table/model';
+import type { DataTableModel } from '../../store/data_table/model';
 
 export const LOCAL_STORAGE_TABLE_KEY = 'securityDataTable';
 const LOCAL_STORAGE_TIMELINE_KEY_LEGACY = 'timelines';
@@ -21,7 +23,6 @@ const EMPTY_TABLE = {} as {
 /**
  * Migrates the values of the data table from the legacy timelines key to the securityDataTable key
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const migrateLegacyTimelinesToSecurityDataTable = (legacyTimelineTables: any) => {
   if (!legacyTimelineTables) {
     return EMPTY_TABLE;
@@ -154,23 +155,6 @@ const getSerializingTableToStore = (table: DataTableModel) => {
   // discard unneeded fields to make sure the object serialization works
   const { isLoading, loadingText, queryFields, unit, ...tableToStore } = table;
   return tableToStore;
-};
-
-export const useDataTablesStorage = (): DataTablesStorage => {
-  const { storage } = useKibana().services;
-
-  const getAllDataTables: DataTablesStorage['getAllDataTables'] = () =>
-    getAllDataTablesInStorage(storage);
-
-  const getDataTablesById: DataTablesStorage['getDataTablesById'] = (id: TableIdLiteral) =>
-    getDataTablesInStorageByIds(storage, [id])[id] ?? null;
-
-  const addDataTable: DataTablesStorage['addDataTable'] = (
-    id: TableIdLiteral,
-    table: DataTableModel
-  ) => addTableInStorage(storage, id, table);
-
-  return { getAllDataTables, getDataTablesById, addDataTable };
 };
 
 export type { DataTablesStorage };
