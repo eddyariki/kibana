@@ -1,8 +1,9 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import React from 'react';
@@ -15,10 +16,10 @@ import { useMountAppended } from '../../utils/use_mount_appended';
 import type { EuiDataGridColumn } from '@elastic/eui';
 import { defaultHeaders, mockGlobalState, mockTimelineData, TestProviders } from '../../mock';
 import { mockBrowserFields } from '../../containers/source/mock';
-import { getMappedNonEcsValue } from '../../../timelines/components/timeline/body/data_driven_columns';
-import type { CellValueElementProps } from '../../../../common/types';
-import { TableId } from '../../../../common/types';
+import type { CellValueElementProps } from '../../common/types';
+import { TableId } from '../../common/types';
 import { SecurityCellActionsTrigger } from '../cell_actions';
+import { getMappedNonEcsValue } from '@kbn/observability-plugin/public/pages/alerts/components/render_cell_value/render_cell_value';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -104,6 +105,7 @@ describe('DataTable', () => {
       onChangeItemsPerPage: jest.fn(),
       onChangePage: jest.fn(),
     },
+    getFieldBrowser: jest.fn(),
   };
 
   beforeEach(() => {

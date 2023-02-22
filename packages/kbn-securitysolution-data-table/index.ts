@@ -13,5 +13,3 @@ export { dataTableActions } from './store/data_table';
 export { dataTableReducer } from './store/data_table/reducer';
 
 export type { DataTableState } from './store/data_table/types';
-
-export { createDataTableLocalStorageEpic } from './store/data_table/epic_local_storage';
