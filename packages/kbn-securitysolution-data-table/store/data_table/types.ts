@@ -7,8 +7,6 @@
  */
 
 import type { EuiDataGridColumn } from '@elastic/eui';
-import { CoreStart } from '@kbn/core/public';
-import { Observable } from 'rxjs';
 import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
 import type { DataTableModel, DataTableModelSettings } from './model';
 
@@ -46,19 +44,4 @@ export interface DataTablePersistInput
       ColumnHeaderOptions
   >;
   sort: SortColumnTable[];
-}
-
-/** A map of id to timeline  */
-export interface TimelineById {
-  [id: string]: TimelineModel;
-}
-
-export interface TimelineEpicDependencies<State> {
-  timelineByIdSelector: (state: State) => TimelineById;
-  timelineTimeRangeSelector: (state: State) => inputsModel.TimeRange;
-  selectAllTimelineQuery: () => (state: State, id: string) => inputsModel.GlobalQuery;
-  selectNotesByIdSelector: (state: State) => NotesById;
-  tableByIdSelector: (state: State) => TableById;
-  kibana$: Observable<CoreStart>;
-  storage: Storage;
 }
