@@ -6,6 +6,8 @@
  * Side Public License, v 1.
  */
 
+/* eslint-disable @kbn/eslint/module_migration */
+
 import type {
   EuiDataGridRefProps,
   EuiDataGridColumn,
@@ -29,17 +31,18 @@ import type {
   FieldBrowserProps,
 } from '@kbn/triggers-actions-ui-plugin/public';
 import { i18n } from '@kbn/i18n';
-import { BrowserFields, TimelineItem } from '@kbn/timelines-plugin/common';
+import {
+  BrowserFields,
+  CellValueElementProps,
+  ColumnHeaderOptions,
+  RowRenderer,
+  TimelineItem,
+} from '@kbn/timelines-plugin/common';
 import {
   useDataGridColumnsSecurityCellActions,
   SecurityCellActionsTrigger,
   type UseDataGridColumnsSecurityCellActionsProps,
 } from '../cell_actions';
-import type {
-  CellValueElementProps,
-  ColumnHeaderOptions,
-  RowRenderer,
-} from '../../common/types/timeline';
 
 import { getColumnHeader, getColumnHeaders } from './column_headers/helpers';
 import { addBuildingBlockStyle, mapSortDirectionToDirection, mapSortingColumns } from './helpers';

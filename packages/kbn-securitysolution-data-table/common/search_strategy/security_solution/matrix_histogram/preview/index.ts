@@ -5,5 +5,12 @@
  * 2.0.
  */
 
-export * from './dependencies_start_mock';
-export * from './app_context_render';
+import type { HistogramBucket } from '../common';
+
+export interface PreviewHistogramGroupData {
+  key: string;
+  doc_count: number;
+  preview: {
+    buckets: HistogramBucket[];
+  };
+}

@@ -1,9 +1,12 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
+
+/* eslint-disable @kbn/eslint/module_migration */
 
 import { euiDarkVars } from '@kbn/ui-theme';
 import { I18nProvider } from '@kbn/i18n-react';
@@ -15,26 +18,16 @@ import { Provider as ReduxStoreProvider } from 'react-redux';
 import type { Store } from 'redux';
 import { BehaviorSubject } from 'rxjs';
 import { ThemeProvider } from 'styled-components';
-import type { Capabilities } from '@kbn/core/public';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createStore as createReduxStore } from 'redux';
 
 import type { Action } from '@kbn/ui-actions-plugin/public';
 import { CellActionsProvider } from '@kbn/cell-actions';
-import { ConsoleManager } from '../../management/components/console';
-import type { State } from '../store';
-import { createStore } from '../store';
 import { mockGlobalState } from './global_state';
-import {
-  createKibanaContextProviderMock,
-  createStartServicesMock,
-} from '../lib/kibana/kibana_react.mock';
-import type { FieldHook } from '../../shared_imports';
-import { SUB_PLUGINS_REDUCER } from './utils';
+import { createKibanaContextProviderMock, createStartServicesMock } from '../lib/kibana_react.mock';
+// import type { FieldHook } from '../../shared_imports';
 import { createSecuritySolutionStorageMock, localStorageMock } from './mock_local_storage';
-import { CASES_FEATURE_ID } from '../../../common/constants';
-import { UserPrivilegesProvider } from '../components/user_privileges/user_privileges_context';
-
-const state: State = mockGlobalState;
+// import { UserPrivilegesProvider } from '../components/user_privileges/user_privileges_context';
 
 interface Props {
   children?: React.ReactNode;
@@ -52,10 +45,12 @@ window.scrollTo = jest.fn();
 const MockKibanaContextProvider = createKibanaContextProviderMock();
 const { storage } = createSecuritySolutionStorageMock();
 
+const createStore = (state: any) => createReduxStore(() => {}, state);
+
 /** A utility for wrapping children in the providers required to run most tests */
 export const TestProvidersComponent: React.FC<Props> = ({
   children,
-  store = createStore(state, SUB_PLUGINS_REDUCER, kibanaObservable, storage),
+  store = createStore(mockGlobalState),
   onDragEnd = jest.fn(),
   cellActions = [],
 }) => {
@@ -66,13 +61,9 @@ export const TestProvidersComponent: React.FC<Props> = ({
         <ReduxStoreProvider store={store}>
           <ThemeProvider theme={() => ({ eui: euiDarkVars, darkMode: true })}>
             <QueryClientProvider client={queryClient}>
-              <ConsoleManager>
-                <CellActionsProvider
-                  getTriggerCompatibleActions={() => Promise.resolve(cellActions)}
-                >
-                  <DragDropContext onDragEnd={onDragEnd}>{children}</DragDropContext>
-                </CellActionsProvider>
-              </ConsoleManager>
+              <CellActionsProvider getTriggerCompatibleActions={() => Promise.resolve(cellActions)}>
+                <DragDropContext onDragEnd={onDragEnd}>{children}</DragDropContext>
+              </CellActionsProvider>
             </QueryClientProvider>
           </ThemeProvider>
         </ReduxStoreProvider>
@@ -87,7 +78,7 @@ export const TestProvidersComponent: React.FC<Props> = ({
  */
 const TestProvidersWithPrivilegesComponent: React.FC<Props> = ({
   children,
-  store = createStore(state, SUB_PLUGINS_REDUCER, kibanaObservable, storage),
+  store = createStore(mockGlobalState),
   onDragEnd = jest.fn(),
   cellActions = [],
 }) => (
@@ -95,18 +86,9 @@ const TestProvidersWithPrivilegesComponent: React.FC<Props> = ({
     <MockKibanaContextProvider>
       <ReduxStoreProvider store={store}>
         <ThemeProvider theme={() => ({ eui: euiDarkVars, darkMode: true })}>
-          <UserPrivilegesProvider
-            kibanaCapabilities={
-              {
-                siem: { show: true, crud: true },
-                [CASES_FEATURE_ID]: { read_cases: true, crud_cases: false },
-              } as unknown as Capabilities
-            }
-          >
-            <CellActionsProvider getTriggerCompatibleActions={() => Promise.resolve(cellActions)}>
-              <DragDropContext onDragEnd={onDragEnd}>{children}</DragDropContext>
-            </CellActionsProvider>
-          </UserPrivilegesProvider>
+          <CellActionsProvider getTriggerCompatibleActions={() => Promise.resolve(cellActions)}>
+            <DragDropContext onDragEnd={onDragEnd}>{children}</DragDropContext>
+          </CellActionsProvider>
         </ThemeProvider>
       </ReduxStoreProvider>
     </MockKibanaContextProvider>
@@ -116,28 +98,28 @@ const TestProvidersWithPrivilegesComponent: React.FC<Props> = ({
 export const TestProviders = React.memo(TestProvidersComponent);
 export const TestProvidersWithPrivileges = React.memo(TestProvidersWithPrivilegesComponent);
 
-export const useFormFieldMock = <T,>(options?: Partial<FieldHook<T>>): FieldHook<T> => {
-  return {
-    path: 'path',
-    type: 'type',
-    value: 'mockedValue' as unknown as T,
-    isPristine: false,
-    isDirty: false,
-    isModified: false,
-    isValidating: false,
-    isValidated: false,
-    isChangingValue: false,
-    errors: [],
-    isValid: true,
-    getErrorsMessages: jest.fn(),
-    onChange: jest.fn(),
-    setValue: jest.fn(),
-    setErrors: jest.fn(),
-    clearErrors: jest.fn(),
-    validate: jest.fn(),
-    reset: jest.fn(),
-    __isIncludedInOutput: true,
-    __serializeValue: jest.fn(),
-    ...options,
-  };
-};
+// export const useFormFieldMock = <T,>(options?: Partial<FieldHook<T>>): FieldHook<T> => {
+//   return {
+//     path: 'path',
+//     type: 'type',
+//     value: 'mockedValue' as unknown as T,
+//     isPristine: false,
+//     isDirty: false,
+//     isModified: false,
+//     isValidating: false,
+//     isValidated: false,
+//     isChangingValue: false,
+//     errors: [],
+//     isValid: true,
+//     getErrorsMessages: jest.fn(),
+//     onChange: jest.fn(),
+//     setValue: jest.fn(),
+//     setErrors: jest.fn(),
+//     clearErrors: jest.fn(),
+//     validate: jest.fn(),
+//     reset: jest.fn(),
+//     __isIncludedInOutput: true,
+//     __serializeValue: jest.fn(),
+//     ...options,
+//   };
+// };

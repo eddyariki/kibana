@@ -14,12 +14,15 @@ import { DataTableComponent } from '.';
 import { REMOVE_COLUMN } from './column_headers/translations';
 import { useMountAppended } from '../../utils/use_mount_appended';
 import type { EuiDataGridColumn } from '@elastic/eui';
-import { defaultHeaders, mockGlobalState, mockTimelineData, TestProviders } from '../../mock';
 import { mockBrowserFields } from '../../containers/source/mock';
-import type { CellValueElementProps } from '../../common/types';
 import { TableId } from '../../common/types';
 import { SecurityCellActionsTrigger } from '../cell_actions';
 import { getMappedNonEcsValue } from '@kbn/observability-plugin/public/pages/alerts/components/render_cell_value/render_cell_value';
+import { defaultHeaders } from '../../mock/header';
+import { mockGlobalState } from '../../mock/global_state';
+import { mockTimelineData } from '../../mock/mock_timeline_data';
+import { TestProviders } from '../../mock/test_providers';
+import { CellValueElementProps } from '@kbn/timelines-plugin/common';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({

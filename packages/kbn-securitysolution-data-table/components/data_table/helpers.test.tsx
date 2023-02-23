@@ -15,7 +15,7 @@ import {
 } from './helpers';
 
 import { euiThemeVars } from '@kbn/ui-theme';
-import { mockDnsEvent } from '../../mock';
+import { mockDnsEvent } from '../../mock/mock_timeline_data';
 
 describe('helpers', () => {
   describe('mapSortDirectionToDirection', () => {
