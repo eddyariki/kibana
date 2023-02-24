@@ -33,6 +33,11 @@ import type { Dispatch } from 'redux';
 import { isTab } from '@kbn/timelines-plugin/public';
 import type { DataViewListItem } from '@kbn/data-views-plugin/common';
 
+import { tableDefaults } from '@kbn/securitysolution-data-table';
+import {
+  dataTableActions,
+  dataTableSelectors,
+} from '@kbn/securitysolution-data-table/store/data_table';
 import { AlertsTableComponent } from '../../../../detections/components/alerts_table';
 import { GroupedAlertsTable } from '../../../../detections/components/alerts_table/grouped_alerts';
 import { useDataTableFilters } from '../../../../common/hooks/use_data_table_filters';
@@ -48,8 +53,6 @@ import { useKibana, useUiSetting$ } from '../../../../common/lib/kibana';
 import type { UpdateDateRange } from '../../../../common/components/charts/common';
 import { FiltersGlobal } from '../../../../common/components/filters_global';
 import { FormattedDate } from '../../../../common/components/formatted_date';
-import { tableDefaults } from '../../../../common/store/data_table/defaults';
-import { dataTableActions, dataTableSelectors } from '../../../../common/store/data_table';
 import {
   getDetectionEngineUrl,
   getRuleDetailsTabUrl,

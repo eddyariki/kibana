@@ -11,7 +11,7 @@ import { createToggleColumnCellActionFactory } from './toggle_column';
 
 import type { CellActionExecutionContext } from '@kbn/cell-actions';
 import { mockGlobalState } from '../../../common/mock';
-import { dataTableActions } from '../../../common/store/data_table';
+import { dataTableActions } from '@kbn/securitysolution-data-table';
 
 const mockDispatch = jest.fn();
 const mockGetState = jest.fn().mockReturnValue(mockGlobalState);

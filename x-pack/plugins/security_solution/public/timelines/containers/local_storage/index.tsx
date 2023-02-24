@@ -7,8 +7,8 @@
 
 import { isEmpty } from 'lodash/fp';
 import type { Storage } from '@kbn/kibana-utils-plugin/public';
+import type { DataTableState } from '@kbn/securitysolution-data-table';
 import { TableId } from '../../../../common/types/data_table';
-import type { DataTableState } from '../../../common/store/data_table/types';
 import { ALERTS_TABLE_REGISTRY_CONFIG_IDS, VIEW_SELECTION } from '../../../../common/constants';
 import type { ColumnHeaderOptions, TableIdLiteral } from '../../../../common/types';
 import type { DataTablesStorage } from './types';

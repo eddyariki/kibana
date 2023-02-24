@@ -15,13 +15,19 @@ import type { AlertsTableStateProps } from '@kbn/triggers-actions-ui-plugin/publ
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEsQueryConfig } from '@kbn/data-plugin/public';
+import {
+  dataTableActions,
+  dataTableSelectors,
+} from '@kbn/securitysolution-data-table/store/data_table';
+import { tableDefaults } from '@kbn/securitysolution-data-table';
+import {
+  updateIsLoading,
+  updateTotalCount,
+} from '@kbn/securitysolution-data-table/store/data_table/actions';
 import { useGlobalTime } from '../../../common/containers/use_global_time';
-import { tableDefaults } from '../../../common/store/data_table/defaults';
 import { useLicense } from '../../../common/hooks/use_license';
-import { updateIsLoading, updateTotalCount } from '../../../common/store/data_table/actions';
 import { VIEW_SELECTION } from '../../../../common/constants';
 import { DEFAULT_COLUMN_MIN_WIDTH } from '../../../timelines/components/timeline/body/constants';
-import { dataTableActions, dataTableSelectors } from '../../../common/store/data_table';
 import { eventsDefaultModel } from '../../../common/components/events_viewer/default_model';
 import { GraphOverlay } from '../../../timelines/components/graph_overlay';
 import {
