@@ -10,9 +10,8 @@ import { omit, union } from 'lodash/fp';
 
 import { isEmpty } from 'lodash';
 import type { EuiDataGridColumn } from '@elastic/eui';
-import type { SessionViewConfig } from '../../common/types/session_view';
 import type { ExpandedDetail, ExpandedDetailType } from '../../common/types/detail_panel';
-import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
+import type { ColumnHeaderOptions, SessionViewConfig, SortColumnTable } from '../../common/types';
 import type { TableToggleDetailPanel } from './actions';
 import type { DataTablePersistInput, TableById } from './types';
 import type { DataTableModelSettings } from './model';

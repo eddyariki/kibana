@@ -8,9 +8,8 @@
 
 import actionCreatorFactory from 'typescript-fsa';
 import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
-import type { SessionViewConfig } from '../../common/types/session_view';
 import type { ExpandedDetailType } from '../../common/types/detail_panel';
-import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
+import type { ColumnHeaderOptions, SessionViewConfig, SortColumnTable } from '../../common/types';
 import type { InitialyzeDataTableSettings, DataTablePersistInput } from './types';
 
 const actionCreator = actionCreatorFactory('x-pack/security_solution/data-table');

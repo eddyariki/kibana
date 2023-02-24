@@ -10,7 +10,7 @@ import type { EuiDataGridColumn } from '@elastic/eui';
 import type { Filter } from '@kbn/es-query';
 import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
 import type { ExpandedDetail } from '../../common/types/detail_panel';
-import type { SessionViewConfig } from '../../common/types/session_view';
+import { SessionViewConfig } from '../../common/types/session_view';
 import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
 
 export interface DataTableModelSettings {
