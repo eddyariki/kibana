@@ -14,7 +14,6 @@ import { DataTableComponent } from '.';
 import { REMOVE_COLUMN } from './column_headers/translations';
 import { useMountAppended } from '../../utils/use_mount_appended';
 import type { EuiDataGridColumn } from '@elastic/eui';
-import { mockBrowserFields } from '../../containers/source/mock';
 import { TableId } from '../../common/types';
 import { SecurityCellActionsTrigger } from '../cell_actions';
 import { getMappedNonEcsValue } from '@kbn/observability-plugin/public/pages/alerts/components/render_cell_value/render_cell_value';
@@ -23,6 +22,7 @@ import { mockGlobalState } from '../../mock/global_state';
 import { mockTimelineData } from '../../mock/mock_timeline_data';
 import { TestProviders } from '../../mock/test_providers';
 import { CellValueElementProps } from '@kbn/timelines-plugin/common';
+import { mockBrowserFields } from '../../mock/mock_source';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({

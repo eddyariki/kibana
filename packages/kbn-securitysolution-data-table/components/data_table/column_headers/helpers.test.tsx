@@ -21,8 +21,8 @@ import {
 } from './helpers';
 import { DEFAULT_TABLE_COLUMN_MIN_WIDTH, DEFAULT_TABLE_DATE_COLUMN_MIN_WIDTH } from '../constants';
 import type { ColumnHeaderOptions } from '../../../common/types';
-import { mockBrowserFields } from '../../../containers/source/mock';
 import { defaultHeaders } from '../../../store/data_table/defaults';
+import { mockBrowserFields } from '../../../mock/mock_source';
 
 window.matchMedia = jest.fn().mockImplementation((query) => {
   return {
