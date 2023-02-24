@@ -25,9 +25,7 @@ import type { Action } from '@kbn/ui-actions-plugin/public';
 import { CellActionsProvider } from '@kbn/cell-actions';
 import { mockGlobalState } from './global_state';
 import { createKibanaContextProviderMock, createStartServicesMock } from '../lib/kibana_react.mock';
-// import type { FieldHook } from '../../shared_imports';
-import { createSecuritySolutionStorageMock, localStorageMock } from './mock_local_storage';
-// import { UserPrivilegesProvider } from '../components/user_privileges/user_privileges_context';
+import { localStorageMock } from './mock_local_storage';
 
 interface Props {
   children?: React.ReactNode;
@@ -43,7 +41,6 @@ Object.defineProperty(window, 'localStorage', {
 });
 window.scrollTo = jest.fn();
 const MockKibanaContextProvider = createKibanaContextProviderMock();
-const { storage } = createSecuritySolutionStorageMock();
 
 const createStore = (state: any) => createReduxStore(() => {}, state);
 
