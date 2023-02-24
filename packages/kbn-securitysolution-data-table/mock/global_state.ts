@@ -8,26 +8,6 @@
 
 import { TableId } from '../common/types';
 import { defaultHeaders } from './header';
-// import {
-//   DEFAULT_INDEX_PATTERN,
-//   DEFAULT_DATA_VIEW_ID,
-//   DEFAULT_SIGNALS_INDEX,
-// } from '../common/constants';
-
-// export const mockSourcererState = {
-//   ...initialSourcererState,
-//   signalIndexName: `${DEFAULT_SIGNALS_INDEX}-spacename`,
-//   defaultDataView: {
-//     ...initialSourcererState.defaultDataView,
-//     browserFields: mockBrowserFields,
-//     id: DEFAULT_DATA_VIEW_ID,
-//     indexFields: mockIndexFields,
-//     loading: false,
-//     patternList: [...DEFAULT_INDEX_PATTERN, `${DEFAULT_SIGNALS_INDEX}-spacename`],
-//     runtimeMappings: mockRuntimeMappings,
-//     title: [...DEFAULT_INDEX_PATTERN, `${DEFAULT_SIGNALS_INDEX}-spacename`].join(','),
-//   },
-// };
 
 // FIXME add strong typings
 export const mockGlobalState: any = {
@@ -75,51 +55,4 @@ export const mockGlobalState: any = {
       },
     },
   },
-  // sourcerer: {
-  //   ...mockSourcererState,
-  //   defaultDataView: {
-  //     ...mockSourcererState.defaultDataView,
-  //     title: `${mockSourcererState.defaultDataView.title},fakebeat-*`,
-  //   },
-  //   kibanaDataViews: [
-  //     {
-  //       ...mockSourcererState.defaultDataView,
-  //       title: `${mockSourcererState.defaultDataView.title},fakebeat-*`,
-  //     },
-  //   ],
-  //   sourcererScopes: {
-  //     ...mockSourcererState.sourcererScopes,
-  //     [SourcererScopeName.default]: {
-  //       ...mockSourcererState.sourcererScopes[SourcererScopeName.default],
-  //       selectedDataViewId: mockSourcererState.defaultDataView.id,
-  //       selectedPatterns: getScopePatternListSelection(
-  //         mockSourcererState.defaultDataView,
-  //         SourcererScopeName.default,
-  //         mockSourcererState.signalIndexName,
-  //         true
-  //       ),
-  //     },
-  //     [SourcererScopeName.detections]: {
-  //       ...mockSourcererState.sourcererScopes[SourcererScopeName.detections],
-  //       selectedDataViewId: mockSourcererState.defaultDataView.id,
-  //       selectedPatterns: getScopePatternListSelection(
-  //         mockSourcererState.defaultDataView,
-  //         SourcererScopeName.detections,
-  //         mockSourcererState.signalIndexName,
-  //         true
-  //       ),
-  //     },
-  //     [SourcererScopeName.timeline]: {
-  //       ...mockSourcererState.sourcererScopes[SourcererScopeName.timeline],
-  //       selectedDataViewId: mockSourcererState.defaultDataView.id,
-  //       selectedPatterns: getScopePatternListSelection(
-  //         mockSourcererState.defaultDataView,
-  //         SourcererScopeName.timeline,
-  //         mockSourcererState.signalIndexName,
-  //         true
-  //       ),
-  //     },
-  //   },
-  // },
-  globalUrlParam: {},
 };
