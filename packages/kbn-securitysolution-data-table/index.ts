@@ -15,3 +15,9 @@ export { dataTableReducer } from './store/data_table/reducer';
 export type { DataTableState } from './store/data_table/types';
 
 export * from './store/data_table/defaults';
+
+export * from './components/data_table/pagination';
+
+export * from './components/data_table/helpers';
+
+export * from './components/data_table/column_headers/helpers';

@@ -5,7 +5,11 @@
  * 2.0.
  */
 
-import { dataTableActions, DataTableComponent } from '@kbn/securitysolution-data-table';
+import {
+  dataTableActions,
+  DataTableComponent,
+  getEventIdToDataMapping,
+} from '@kbn/securitysolution-data-table';
 import { Storage } from '@kbn/kibana-utils-plugin/public';
 import { AlertConsumers } from '@kbn/rule-data-utils';
 import React, { useRef, useCallback, useMemo, useEffect, useState, useContext } from 'react';
@@ -62,7 +66,6 @@ import { useQueryInspector } from '../page/manage_query';
 import type { SetQuery } from '../../containers/use_global_time/types';
 import { defaultHeaders } from '../../store/data_table/defaults';
 import { checkBoxControlColumn, transformControlColumns } from '../control_columns';
-import { getEventIdToDataMapping } from '../data_table/helpers';
 import { RightTopMenu } from './right_top_menu';
 import { useAlertBulkActions } from './use_alert_bulk_actions';
 import type { BulkActionsProp } from '../toolbar/bulk_actions/types';

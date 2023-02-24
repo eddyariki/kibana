@@ -12,9 +12,9 @@ import { keyBy } from 'lodash/fp';
 import React from 'react';
 
 import { BrowserField, BrowserFields } from '@kbn/timelines-plugin/common';
-import type { ColumnHeaderOptions } from '../../../common/types/timeline';
 import { DEFAULT_TABLE_COLUMN_MIN_WIDTH, DEFAULT_TABLE_DATE_COLUMN_MIN_WIDTH } from '../constants';
 import { defaultColumnHeaderType } from '../../../store/data_table/defaults';
+import { ColumnHeaderOptions } from '../../../common/types';
 
 const defaultActions: EuiDataGridColumnActions = {
   showSortAsc: true,

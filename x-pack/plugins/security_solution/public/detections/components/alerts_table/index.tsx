@@ -19,7 +19,7 @@ import {
   dataTableActions,
   dataTableSelectors,
 } from '@kbn/securitysolution-data-table/store/data_table';
-import { tableDefaults } from '@kbn/securitysolution-data-table';
+import { getColumnHeaders, tableDefaults } from '@kbn/securitysolution-data-table';
 import {
   updateIsLoading,
   updateTotalCount,
@@ -45,7 +45,6 @@ import { TableId } from '../../../../common/types';
 import { useKibana } from '../../../common/lib/kibana';
 import { useShallowEqualSelector } from '../../../common/hooks/use_selector';
 import { getColumns } from '../../configurations/security_solution_detections';
-import { getColumnHeaders } from '../../../common/components/data_table/column_headers/helpers';
 import { buildTimeRangeFilter } from './helpers';
 import { eventsViewerSelector } from '../../../common/components/events_viewer/selectors';
 import type { State } from '../../../common/store';
