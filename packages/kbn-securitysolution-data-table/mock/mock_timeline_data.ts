@@ -8,10 +8,10 @@
 
 import type { EcsSecurityExtension as Ecs } from '@kbn/securitysolution-ecs';
 
-export { demoTimelineData as mockTimelineData } from '../demo_data/timeline';
-export { demoEndpointRegistryModificationEvent as mockEndpointRegistryModificationEvent } from '../demo_data/endpoint/registry_modification_event';
-export { demoEndpointLibraryLoadEvent as mockEndpointLibraryLoadEvent } from '../demo_data/endpoint/library_load_event';
-export { demoEndpointProcessExecutionMalwarePreventionAlert as mockEndpointProcessExecutionMalwarePreventionAlert } from '../demo_data/endpoint/process_execution_malware_prevention_alert';
+export { demoTimelineData as mockTimelineData } from './demo_data/timeline';
+export { demoEndpointRegistryModificationEvent as mockEndpointRegistryModificationEvent } from './demo_data/endpoint/registry_modification_event';
+export { demoEndpointLibraryLoadEvent as mockEndpointLibraryLoadEvent } from './demo_data/endpoint/library_load_event';
+export { demoEndpointProcessExecutionMalwarePreventionAlert as mockEndpointProcessExecutionMalwarePreventionAlert } from './demo_data/endpoint/process_execution_malware_prevention_alert';
 
 export const mockFimFileCreatedEvent: Ecs = {
   _id: 'WuBP4W0BOpWiDweSoYSg',
