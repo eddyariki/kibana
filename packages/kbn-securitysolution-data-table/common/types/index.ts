@@ -7,10 +7,8 @@
  */
 
 export * from './data_table';
-export * from './detail_panel';
 export * from './header_actions';
 export * from './session_view';
-export * from './bulk_actions';
 
 export const FILTER_OPEN = 'open' as const;
 export const FILTER_CLOSED = 'closed' as const;
