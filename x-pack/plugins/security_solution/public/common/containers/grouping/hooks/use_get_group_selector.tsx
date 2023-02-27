@@ -8,8 +8,8 @@
 import type { FieldSpec } from '@kbn/data-views-plugin/common';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import type { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { GROUP_BY } from '../../../components/grouping/translations';
-import type { TableId } from '../../../../../common/types';
 import { getDefaultGroupingOptions } from '../../../../detections/components/alerts_table/grouping_settings';
 import type { State } from '../../../store';
 import { defaultGroup } from '../../../store/grouping/defaults';

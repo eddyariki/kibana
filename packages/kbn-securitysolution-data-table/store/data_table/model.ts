@@ -9,9 +9,8 @@
 import type { EuiDataGridColumn } from '@elastic/eui';
 import type { Filter } from '@kbn/es-query';
 import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
-import type { ExpandedDetail } from '../../common/types/detail_panel';
-import { SessionViewConfig } from '../../common/types/session_view';
-import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
+import { ExpandedDetail } from '../../common/types/detail_panel';
+import { ColumnHeaderOptions, SessionViewConfig, SortColumnTable } from '../../common/types';
 import { ViewSelection } from '../../common/constants';
 
 export interface DataTableModelSettings {
@@ -29,6 +28,9 @@ export interface DataTableModelSettings {
   title: string;
   unit?: (n: number) => string | React.ReactNode;
 }
+
+export type AlertPageFilterType = 'showOnlyThreatIndicatorAlerts' | 'showBuildingBlockAlerts';
+
 export interface DataTableModel extends DataTableModelSettings {
   /** The columns displayed in the data table */
   columns: Array<
@@ -64,9 +66,10 @@ export interface DataTableModel extends DataTableModelSettings {
   updated?: number;
   /** Total number of fetched events/alerts */
   totalCount: number;
+  /* viewMode of the table */
   viewMode: ViewSelection;
   /* custom filters applicable to */
-  additionalFilters: Record<string, boolean>;
+  additionalFilters: Record<AlertPageFilterType, boolean>;
 }
 
 export type SubsetDataTableModel = Readonly<

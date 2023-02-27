@@ -532,6 +532,7 @@ const TableIdLiteralRt = runtimeTypes.union([
   runtimeTypes.literal(TableId.test),
   runtimeTypes.literal(TableId.rulePreview),
   runtimeTypes.literal(TableId.kubernetesPageSessions),
+  runtimeTypes.literal(TableId.alertsOnCasePage),
 ]);
 
 export type TableIdLiteral = runtimeTypes.TypeOf<typeof TableIdLiteralRt>;

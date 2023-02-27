@@ -10,7 +10,6 @@ import { map, filter, ignoreElements, tap, withLatestFrom, delay } from 'rxjs/op
 import type { Epic } from 'redux-observable';
 import { get } from 'lodash/fp';
 
-import type { TableIdLiteral } from '@kbn/securitysolution-data-table/common/constants';
 import {
   applyDeltaToColumnWidth,
   changeViewMode,
@@ -24,6 +23,7 @@ import {
   updateSort,
   upsertColumn,
 } from '@kbn/securitysolution-data-table/store/data_table/actions';
+import type { TableIdLiteral } from '@kbn/securitysolution-data-table/common/constants';
 import { updateTotalCount } from '../../../timelines/store/timeline/actions';
 import { addTableInStorage } from '../../../timelines/containers/local_storage';
 

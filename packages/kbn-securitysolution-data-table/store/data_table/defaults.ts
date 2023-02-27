@@ -7,7 +7,7 @@
  */
 
 import { VIEW_SELECTION } from '../../common/constants';
-import type { ColumnHeaderOptions, ColumnHeaderType } from '../../common/types';
+import { ColumnHeaderOptions, ColumnHeaderType } from '../../common/types';
 import {
   DEFAULT_TABLE_COLUMN_MIN_WIDTH,
   DEFAULT_TABLE_DATE_COLUMN_MIN_WIDTH,
@@ -92,7 +92,10 @@ export const tableDefaults: SubsetDataTableModel = {
   title: '',
   totalCount: 0,
   viewMode: VIEW_SELECTION.gridView,
-  additionalFilters: {},
+  additionalFilters: {
+    showBuildingBlockAlerts: false,
+    showOnlyThreatIndicatorAlerts: false,
+  },
 };
 
 export const getDataTableManageDefaults = (id: string) => ({
