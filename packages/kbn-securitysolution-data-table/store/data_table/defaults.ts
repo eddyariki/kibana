@@ -6,6 +6,7 @@
  * Side Public License, v 1.
  */
 
+import { VIEW_SELECTION } from '../../common/constants';
 import type { ColumnHeaderOptions, ColumnHeaderType } from '../../common/types';
 import {
   DEFAULT_TABLE_COLUMN_MIN_WIDTH,
@@ -90,6 +91,8 @@ export const tableDefaults: SubsetDataTableModel = {
   queryFields: [],
   title: '',
   totalCount: 0,
+  viewMode: VIEW_SELECTION.gridView,
+  additionalFilters: {},
 };
 
 export const getDataTableManageDefaults = (id: string) => ({

@@ -5,15 +5,15 @@
  * 2.0.
  */
 
-import { useCallback, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import type { TableId } from '../../../common/types';
-import { dataTableSelectors } from '../store/data_table';
+import { tableDefaults } from '@kbn/securitysolution-data-table';
+import type { TableId } from '@kbn/securitysolution-data-table/common/types';
+import { dataTableSelectors } from '@kbn/securitysolution-data-table/store/data_table';
 import {
   updateShowBuildingBlockAlertsFilter,
   updateShowThreatIndicatorAlertsFilter,
-} from '../store/data_table/actions';
-import { tableDefaults } from '../store/data_table/defaults';
+} from '@kbn/securitysolution-data-table/store/data_table/actions';
+import { useCallback, useMemo } from 'react';
+import { useDispatch } from 'react-redux';
 import { useShallowEqualSelector } from './use_selector';
 
 export type UseDataTableFilters = (tableId: TableId) => {

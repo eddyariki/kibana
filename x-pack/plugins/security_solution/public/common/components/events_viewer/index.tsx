@@ -8,6 +8,7 @@
 import {
   dataTableActions,
   DataTableComponent,
+  defaultHeaders,
   getEventIdToDataMapping,
 } from '@kbn/securitysolution-data-table';
 import { Storage } from '@kbn/kibana-utils-plugin/public';
@@ -22,6 +23,9 @@ import { isEmpty } from 'lodash';
 import { getEsQueryConfig } from '@kbn/data-plugin/common';
 import type { EuiTheme } from '@kbn/kibana-react-plugin/common';
 import type { EuiDataGridRowHeightsOptions } from '@elastic/eui';
+import type { SubsetDataTableModel } from '@kbn/securitysolution-data-table/store/data_table/model';
+import type { TableId } from '@kbn/securitysolution-data-table/common/types';
+import type { ViewSelection } from '@kbn/securitysolution-data-table/common/constants';
 import { ALERTS_TABLE_VIEW_SELECTION_KEY } from '../../../../common/constants';
 import type { Sort } from '../../../timelines/components/timeline/body/sort';
 import type {
@@ -30,8 +34,6 @@ import type {
   OnSelectAll,
   SetEventsDeleted,
   SetEventsLoading,
-  TableId,
-  ViewSelection,
 } from '../../../../common/types';
 import { InputsModelId } from '../../store/inputs/constants';
 import type { State } from '../../store';
@@ -50,7 +52,6 @@ import {
   useSessionViewNavigation,
   useSessionView,
 } from '../../../timelines/components/timeline/session_tab_content/use_session_view';
-import type { SubsetDataTableModel } from '../../store/data_table/model';
 import {
   EventsContainerLoading,
   FullScreenContainer,
@@ -64,7 +65,6 @@ import { TableContext, EmptyTable, TableLoading } from './shared';
 import type { AlertWorkflowStatus } from '../../types';
 import { useQueryInspector } from '../page/manage_query';
 import type { SetQuery } from '../../containers/use_global_time/types';
-import { defaultHeaders } from '../../store/data_table/defaults';
 import { checkBoxControlColumn, transformControlColumns } from '../control_columns';
 import { RightTopMenu } from './right_top_menu';
 import { useAlertBulkActions } from './use_alert_bulk_actions';

@@ -12,6 +12,7 @@ import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
 import type { ExpandedDetail } from '../../common/types/detail_panel';
 import { SessionViewConfig } from '../../common/types/session_view';
 import type { ColumnHeaderOptions, SortColumnTable } from '../../common/types';
+import { ViewSelection } from '../../common/constants';
 
 export interface DataTableModelSettings {
   defaultColumns: Array<
@@ -63,6 +64,9 @@ export interface DataTableModel extends DataTableModelSettings {
   updated?: number;
   /** Total number of fetched events/alerts */
   totalCount: number;
+  viewMode: ViewSelection;
+  /* custom filters applicable to */
+  additionalFilters: Record<string, boolean>;
 }
 
 export type SubsetDataTableModel = Readonly<
@@ -90,5 +94,7 @@ export type SubsetDataTableModel = Readonly<
     | 'initialized'
     | 'selectAll'
     | 'totalCount'
+    | 'viewMode'
+    | 'additionalFilters'
   >
 >;

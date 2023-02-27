@@ -11,6 +11,7 @@ import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
 import type { ExpandedDetailType } from '../../common/types/detail_panel';
 import type { ColumnHeaderOptions, SessionViewConfig, SortColumnTable } from '../../common/types';
 import type { InitialyzeDataTableSettings, DataTablePersistInput } from './types';
+import { ViewSelection } from '../../common/constants';
 
 const actionCreator = actionCreatorFactory('x-pack/security_solution/data-table');
 
@@ -126,3 +127,18 @@ export const setTableUpdatedAt = actionCreator<{ id: string; updated: number }>(
 export const updateTotalCount = actionCreator<{ id: string; totalCount: number }>(
   'UPDATE_TOTAL_COUNT'
 );
+
+export const changeViewMode = actionCreator<{
+  id: string;
+  viewMode: ViewSelection;
+}>('CHANGE_ALERT_TABLE_VIEW_MODE');
+
+export const updateShowBuildingBlockAlertsFilter = actionCreator<{
+  id: string;
+  showBuildingBlockAlerts: boolean;
+}>('UPDATE_BUILDING_BLOCK_ALERTS_FILTER');
+
+export const updateShowThreatIndicatorAlertsFilter = actionCreator<{
+  id: string;
+  showOnlyThreatIndicatorAlerts: boolean;
+}>('UPDATE_SHOW_THREAT_INDICATOR_ALERTS_FILTER');

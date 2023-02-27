@@ -5,9 +5,9 @@
  * 2.0.
  */
 
+import { getTableByIdSelector } from '@kbn/securitysolution-data-table/store/data_table/selectors';
 import { createSelector } from 'reselect';
 
-import { getTableByIdSelector } from '../../../store/data_table/selectors';
 import {
   getTimelineSelector,
   globalFiltersQuerySelector,
