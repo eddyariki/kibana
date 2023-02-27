@@ -8,6 +8,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import type { ConnectedProps } from 'react-redux';
 import { connect, useDispatch } from 'react-redux';
+import { dataTableSelectors } from '@kbn/securitysolution-data-table/store/data_table';
+import type { DataTableState } from '@kbn/securitysolution-data-table';
+import { dataTableActions } from '@kbn/securitysolution-data-table';
+import type { DataTableModel } from '@kbn/securitysolution-data-table/store/data_table/model';
 import type {
   CustomBulkActionProp,
   SetEventsDeleted,
@@ -15,10 +19,7 @@ import type {
 } from '../../../../../common/types';
 import { BulkActions } from '.';
 import { useBulkActionItems } from './use_bulk_action_items';
-import { dataTableActions, dataTableSelectors } from '../../../store/data_table';
-import type { DataTableModel } from '../../../store/data_table/model';
 import type { AlertWorkflowStatus, Refetch } from '../../../types';
-import type { DataTableState } from '../../../store/data_table/types';
 import type { OnUpdateAlertStatusError, OnUpdateAlertStatusSuccess } from './types';
 import type { inputsModel } from '../../../store';
 import { inputsSelectors } from '../../../store';

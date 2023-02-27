@@ -6,7 +6,7 @@
  */
 
 import type { SecurityAppStore } from '../../../common/store/types';
-import { TableId } from '../../../../common/types';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { createToggleColumnCellActionFactory } from './toggle_column';
 
 import type { CellActionExecutionContext } from '@kbn/cell-actions';

@@ -24,7 +24,7 @@ import type {
   DataTableModel,
   DataTableState,
 } from '@kbn/securitysolution-data-table/store/data_table/types';
-import { TableId } from '@kbn/securitysolution-data-table/common/constants';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 
 jest.mock('../../../common/lib/kibana');
 

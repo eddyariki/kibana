@@ -30,10 +30,10 @@ import {
   dataTableSelectors,
 } from '@kbn/securitysolution-data-table/store/data_table';
 import { tableDefaults } from '@kbn/securitysolution-data-table';
+import { FILTER_OPEN, TableId } from '@kbn/securitysolution-data-table/common/types';
 import { ALERTS_TABLE_REGISTRY_CONFIG_IDS } from '../../../../common/constants';
 import { useDataTableFilters } from '../../../common/hooks/use_data_table_filters';
 import { useIsExperimentalFeatureEnabled } from '../../../common/hooks/use_experimental_features';
-import { FILTER_OPEN, TableId } from '../../../../common/types';
 import { InputsModelId } from '../../../common/store/inputs/constants';
 import { useDeepEqualSelector, useShallowEqualSelector } from '../../../common/hooks/use_selector';
 import { SecurityPageName } from '../../../app/types';

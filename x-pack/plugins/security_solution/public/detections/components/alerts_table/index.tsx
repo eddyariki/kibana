@@ -24,6 +24,7 @@ import {
   updateIsLoading,
   updateTotalCount,
 } from '@kbn/securitysolution-data-table/store/data_table/actions';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { useGlobalTime } from '../../../common/containers/use_global_time';
 import { useLicense } from '../../../common/hooks/use_license';
 import { VIEW_SELECTION } from '../../../../common/constants';
@@ -41,7 +42,6 @@ import { StatefulEventContext } from '../../../common/components/events_viewer/s
 import { getDataTablesInStorageByIds } from '../../../timelines/containers/local_storage';
 import { useSourcererDataView } from '../../../common/containers/sourcerer';
 import { SourcererScopeName } from '../../../common/store/sourcerer/model';
-import { TableId } from '../../../../common/types';
 import { useKibana } from '../../../common/lib/kibana';
 import { useShallowEqualSelector } from '../../../common/hooks/use_selector';
 import { getColumns } from '../../configurations/security_solution_detections';

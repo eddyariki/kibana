@@ -7,7 +7,7 @@
 
 import { render } from '@testing-library/react';
 import React from 'react';
-import { TableId } from '../../../../common/types';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { HostsType } from '../../../explore/hosts/store/model';
 import { TestProviders } from '../../mock';
 import type { EventsQueryTabBodyComponentProps } from './events_query_tab_body';

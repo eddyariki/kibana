@@ -5,7 +5,7 @@
  * 2.0.
  */
 
-import { TableId } from '../../../common/types';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { TimelineId } from '../../../common/types/timeline';
 import { skipQueryForDetectionsPage } from './helpers';
 

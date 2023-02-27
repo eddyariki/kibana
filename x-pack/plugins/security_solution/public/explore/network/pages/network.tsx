@@ -16,7 +16,7 @@ import { isTab } from '@kbn/timelines-plugin/public';
 import { getEsQueryConfig } from '@kbn/data-plugin/common';
 import { dataTableSelectors } from '@kbn/securitysolution-data-table/store/data_table';
 import { tableDefaults } from '@kbn/securitysolution-data-table';
-import { TableId } from '@kbn/securitysolution-data-table/common/constants';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import { InputsModelId } from '../../../common/store/inputs/constants';
 import { SecurityPageName } from '../../../app/types';
 import type { UpdateDateRange } from '../../../common/components/charts/common';

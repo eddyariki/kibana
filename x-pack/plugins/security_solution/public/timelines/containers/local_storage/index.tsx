@@ -10,7 +10,7 @@ import type { Storage } from '@kbn/kibana-utils-plugin/public';
 import type { DataTableState } from '@kbn/securitysolution-data-table';
 import type { DataTableModel } from '@kbn/securitysolution-data-table/store/data_table/model';
 import type { TableIdLiteral } from '@kbn/securitysolution-data-table/common/constants';
-import { TableId } from '@kbn/securitysolution-data-table/common/constants';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import type { ColumnHeaderOptions } from '@kbn/timelines-plugin/common';
 import { ALERTS_TABLE_REGISTRY_CONFIG_IDS, VIEW_SELECTION } from '../../../../common/constants';
 import type { DataTablesStorage } from './types';

@@ -14,7 +14,7 @@ import {
 } from './helpers';
 import { mockGlobalState } from '../../mock/global_state';
 import type { SortColumnTable } from '../../common/types';
-import { TableId } from '../../common/types';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 import type { DataTableModelSettings } from './model';
 
 const id = 'foo';

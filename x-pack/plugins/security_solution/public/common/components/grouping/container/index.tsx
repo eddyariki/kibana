@@ -14,9 +14,9 @@ import {
 } from '@elastic/eui';
 import type { Filter } from '@kbn/es-query';
 import React, { useMemo, useState } from 'react';
+import { tableDefaults } from '@kbn/securitysolution-data-table';
 import { firstNonNullValue } from '../../../../../common/endpoint/models/ecs_safety_helpers';
 import { createGroupFilter } from '../accordion_panel/helpers';
-import { tableDefaults } from '../../../store/data_table/defaults';
 import { defaultUnit } from '../../toolbar/unit';
 import type { BadgeMetric, CustomMetric } from '../accordion_panel';
 import { GroupPanel } from '../accordion_panel';
