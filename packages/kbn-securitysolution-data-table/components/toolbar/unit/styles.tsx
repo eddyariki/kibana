@@ -6,6 +6,7 @@
  * Side Public License, v 1.
  */
 
+// eslint-disable-next-line @kbn/eslint/module_migration
 import styled from 'styled-components';
 
 export const UnitCount = styled.span`

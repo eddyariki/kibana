@@ -6,8 +6,7 @@
  * Side Public License, v 1.
  */
 
-import type { ColumnHeaderType } from '../../../common/types';
-import type { ColumnHeaderOptions } from '../../../common/types/timeline';
+import type { ColumnHeaderOptions, ColumnHeaderType } from '../../../common/types';
 import { DEFAULT_TABLE_COLUMN_MIN_WIDTH, DEFAULT_TABLE_DATE_COLUMN_MIN_WIDTH } from '../constants';
 
 export const defaultColumnHeaderType: ColumnHeaderType = 'not-filtered';

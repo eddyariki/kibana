@@ -1,8 +1,9 @@
 /*
  * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
  * or more contributor license agreements. Licensed under the Elastic License
- * 2.0; you may not use this file except in compliance with the Elastic License
- * 2.0.
+ * 2.0 and the Server Side Public License, v 1; you may not use this file except
+ * in compliance with, at your election, the Elastic License 2.0 or the Server
+ * Side Public License, v 1.
  */
 
 import type {
@@ -15,9 +16,11 @@ import type { IFieldSubType } from '@kbn/es-query';
 import type { FieldBrowserOptions } from '@kbn/triggers-actions-ui-plugin/public';
 import type { ComponentType, JSXElementConstructor, ReactNode } from 'react';
 import type { EcsSecurityExtension as Ecs } from '@kbn/securitysolution-ecs';
-import type { OnRowSelected, SetEventsDeleted, SetEventsLoading } from '..';
-import type { BrowserFields, TimelineNonEcsData } from '../../search_strategy';
+import { BrowserFields } from '@kbn/rule-registry-plugin/common';
+import { TimelineNonEcsData } from '@kbn/timelines-plugin/common';
+import { OnRowSelected } from '../../../components/data_table/types';
 import type { SortColumnTable } from '../data_table';
+import { SetEventsDeleted, SetEventsLoading } from '..';
 
 export type ColumnHeaderType = 'not-filtered' | 'text-filter';
 

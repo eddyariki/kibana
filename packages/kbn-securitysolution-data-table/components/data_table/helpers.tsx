@@ -11,9 +11,12 @@ import { isEmpty } from 'lodash/fp';
 import type { EuiDataGridCellValueElementProps } from '@elastic/eui';
 import type { EuiTheme } from '@kbn/kibana-react-plugin/common';
 import type { EcsSecurityExtension as Ecs } from '@kbn/securitysolution-ecs';
-import { TimelineItem, TimelineNonEcsData } from '@kbn/timelines-plugin/common';
-import type { SortColumnTable } from '../../common/types';
-import type { ColumnHeaderOptions, SortDirection } from '../../common/types/timeline';
+import {
+  ColumnHeaderOptions,
+  TimelineItem,
+  TimelineNonEcsData,
+} from '@kbn/timelines-plugin/common';
+import type { SortColumnTable, SortDirectionTable } from '../../common/types';
 
 /**
  * Creates mapping of eventID -> fieldData for given fieldsToKeep. Used to store additional field
@@ -43,7 +46,7 @@ export const isEventBuildingBlockType = (event: Ecs): boolean =>
   !isEmpty(event.kibana?.alert?.building_block_type);
 
 /** Maps (Redux) `SortDirection` to the `direction` values used by `EuiDataGrid` */
-export const mapSortDirectionToDirection = (sortDirection: SortDirection): 'asc' | 'desc' => {
+export const mapSortDirectionToDirection = (sortDirection: SortDirectionTable): 'asc' | 'desc' => {
   switch (sortDirection) {
     case 'asc': // fall through
     case 'desc':
