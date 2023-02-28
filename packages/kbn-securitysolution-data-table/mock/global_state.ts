@@ -6,7 +6,7 @@
  * Side Public License, v 1.
  */
 
-import { TableId } from '@kbn/securitysolution-data-table/common/types';
+import { TableId } from '../common/types';
 import { defaultHeaders } from './header';
 
 // FIXME add strong typings

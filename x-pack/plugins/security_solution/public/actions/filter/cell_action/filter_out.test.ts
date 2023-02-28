@@ -17,6 +17,7 @@ import { createFilterOutCellActionFactory } from './filter_out';
 import type { SecurityCellActionExecutionContext } from '../../types';
 import { createStartServicesMock } from '../../../common/lib/kibana/kibana_react.mock';
 import { TimelineId } from '../../../../common/types';
+import { TableId } from '@kbn/securitysolution-data-table/common/types';
 
 const services = createStartServicesMock();
 const mockFilterManager = services.data.query.filterManager;
