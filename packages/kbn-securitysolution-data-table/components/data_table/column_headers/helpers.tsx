@@ -155,7 +155,7 @@ const eventRenderedViewColumns: ColumnHeaderOptions[] = [
     columnHeaderType: defaultColumnHeaderType,
     id: '@timestamp',
     displayAsText: i18n.translate(
-      'xpack.securitySolution.EventRenderedView.timestampTitle.column',
+      'securitySolutionDataTable.EventRenderedView.timestampTitle.column',
       {
         defaultMessage: 'Timestamp',
       }
@@ -167,7 +167,7 @@ const eventRenderedViewColumns: ColumnHeaderOptions[] = [
   },
   {
     columnHeaderType: defaultColumnHeaderType,
-    displayAsText: i18n.translate('xpack.securitySolution.EventRenderedView.ruleTitle.column', {
+    displayAsText: i18n.translate('securitySolutionDataTable.EventRenderedView.ruleTitle.column', {
       defaultMessage: 'Rule',
     }),
     id: 'kibana.alert.rule.name',
@@ -180,9 +180,12 @@ const eventRenderedViewColumns: ColumnHeaderOptions[] = [
   {
     columnHeaderType: defaultColumnHeaderType,
     id: 'eventSummary',
-    displayAsText: i18n.translate('xpack.securitySolution.EventRenderedView.eventSummary.column', {
-      defaultMessage: 'Event Summary',
-    }),
+    displayAsText: i18n.translate(
+      'securitySolutionDataTable.EventRenderedView.eventSummary.column',
+      {
+        defaultMessage: 'Event Summary',
+      }
+    ),
     actions: false,
     isExpandable: false,
     isResizable: false,

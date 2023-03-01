@@ -6,6 +6,8 @@
  * Side Public License, v 1.
  */
 
+import * as runtimeTypes from 'io-ts';
+
 export enum Direction {
   asc = 'asc',
   desc = 'desc',
@@ -30,4 +32,19 @@ export enum TableId {
   alternateTest = 'alternateTest',
   rulePreview = 'rule-preview',
   kubernetesPageSessions = 'kubernetes-page-sessions',
+  alertsOnCasePage = 'alerts-case-page',
 }
+
+const TableIdLiteralRt = runtimeTypes.union([
+  runtimeTypes.literal(TableId.usersPageEvents),
+  runtimeTypes.literal(TableId.hostsPageEvents),
+  runtimeTypes.literal(TableId.networkPageEvents),
+  runtimeTypes.literal(TableId.hostsPageSessions),
+  runtimeTypes.literal(TableId.alertsOnRuleDetailsPage),
+  runtimeTypes.literal(TableId.alertsOnAlertsPage),
+  runtimeTypes.literal(TableId.test),
+  runtimeTypes.literal(TableId.rulePreview),
+  runtimeTypes.literal(TableId.kubernetesPageSessions),
+]);
+
+export type TableIdLiteral = runtimeTypes.TypeOf<typeof TableIdLiteralRt>;

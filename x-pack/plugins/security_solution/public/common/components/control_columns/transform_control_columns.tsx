@@ -11,6 +11,7 @@ import type { ComponentType } from 'react';
 import React from 'react';
 import type { EuiTheme } from '@kbn/kibana-react-plugin/common';
 import { addBuildingBlockStyle, getPageRowIndex } from '@kbn/securitysolution-data-table';
+import type { SortColumnTable } from '@kbn/securitysolution-data-table/common/types';
 import type {
   BrowserFields,
   TimelineItem,
@@ -23,7 +24,6 @@ import type {
   ControlColumnProps,
   OnRowSelected,
   OnSelectAll,
-  SortColumnTable,
 } from '../../../../common/types';
 import { RowAction } from './row_action';
 

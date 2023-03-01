@@ -55,7 +55,7 @@ import { UnitCount } from '../toolbar/unit';
 import { useShallowEqualSelector } from '../../hooks/use_selector';
 import { tableDefaults } from '../../store/data_table/defaults';
 
-const DATA_TABLE_ARIA_LABEL = i18n.translate('xpack.securitySolution.dataTable.ariaLabel', {
+const DATA_TABLE_ARIA_LABEL = i18n.translate('securitySolutionDataTable.dataTable.ariaLabel', {
   defaultMessage: 'Alerts',
 });
 

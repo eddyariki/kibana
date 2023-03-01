@@ -9,7 +9,7 @@
 import { i18n } from '@kbn/i18n';
 
 export const ALERTS_UNIT = (totalCount: number) =>
-  i18n.translate('xpack.securitySolution.eventsTab.unit', {
+  i18n.translate('securitySolutionDataTable.eventsTab.unit', {
     values: { totalCount },
     defaultMessage: `{totalCount, plural, =1 {alert} other {alerts}}`,
   });

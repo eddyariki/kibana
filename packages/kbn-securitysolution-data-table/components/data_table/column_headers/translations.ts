@@ -9,7 +9,7 @@
 import { i18n } from '@kbn/i18n';
 
 export const REMOVE_COLUMN = i18n.translate(
-  'xpack.securitySolution.columnHeaders.flyout.pane.removeColumnButtonLabel',
+  'securitySolutionDataTable.columnHeaders.flyout.pane.removeColumnButtonLabel',
   {
     defaultMessage: 'Remove column',
   }
